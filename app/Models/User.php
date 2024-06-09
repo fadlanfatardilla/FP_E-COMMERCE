@@ -15,27 +15,33 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $fillable = [
         'name',
         'email',
         'password',
-        'role'
+        'role', // tambahkan atribut role ke dalam fillable
+        'phone', // tambahkan atribut phone ke dalam fillable jika digunakan
+        'email_verified_at',
     ];
 
     /**
      * The attributes that should be hidden for serialization.
      *
-     * @var array<int, string>
+     * @var array
      */
     protected $hidden = [
         'password',
+        'remember_token', // jika Anda menggunakan remember_token, tambahkan ke hidden
     ];
 
     /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     * @var array
      */
+    protected $casts = [
+        'email_verified_at' => 'datetime', // pastikan email_verified_at di-cast ke tipe datetime
+    ];
 }

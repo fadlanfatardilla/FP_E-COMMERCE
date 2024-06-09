@@ -10,6 +10,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +31,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('user/{user}', [UserController::class, 'updateProfile']);
 
     // Product Routes
-    Route::get('products', [ProductsController::class, 'index']);
-    Route::get('products/{product}', [ProductsController::class, 'show']);
-    Route::post('products', [ProductsController::class, 'store']); // Admin only
-    Route::put('products/{product}', [ProductsController::class, 'update']); // Admin only
-    Route::delete('products/{product}', [ProductsController::class, 'destroy']); // Admin only
+    Route::get('/products', [ProductsController::class, 'index']);
+    Route::get('/products/{product}', [ProductsController::class, 'show']);
+    Route::post('/products', [ProductsController::class, 'store']); // Admin only
+    Route::put('/products/{product}', [ProductsController::class, 'update']); // Admin only
+    Route::delete('/products/{product}', [ProductsController::class, 'destroy']); // Admin only
 
     // Category Routes
     Route::get('categories', [CategoryController::class, 'index']);

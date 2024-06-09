@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255);
             $table->text('description');
-            $table->string('price',);
+            $table->decimal('price', 10, 3);
             $table->integer('stock');
             $table->string('size');
+            $table->string('image')->nullable();
             $table->timestamps();
 
             $table->foreignId('category_id')->constrained()->onDelete('cascade');
